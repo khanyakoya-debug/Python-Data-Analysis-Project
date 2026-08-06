@@ -5,6 +5,31 @@ file_name = "fifa_world_cup_2026_player_performance.csv"
 print("\nWelcome to the FIFA Player Analysis System!")
 print("Analyse FIFA World Cup 2026 player data using Python.\n")
 
+def find_highest_value(column_index, title, value_name, data_type=int):
+
+    with open(file_name, "r") as file:
+
+        reader = csv.reader(file)
+
+        next(reader)
+
+        highest_value = -1
+        best_player = ""
+
+        for row in reader:
+
+            value = data_type(row[column_index])
+
+            if value > highest_value:
+
+                highest_value = value
+                best_player = row[1]
+
+        print("\n" + title)
+        print("-" * 45)
+        print("Player:", best_player)
+        print(value_name + ":", highest_value)
+
 def display_columns():
     with open(file_name, "r") as file:
         reader = csv.reader(file)
@@ -103,30 +128,37 @@ def average_age():
         print("-" * 25)
         print("Average Age:", round(average, 2), "years")
 
+
 def top_goal_scorer():
+    
+    
+   find_highest_value(
+    22,
+    "TOP GOAL SCORER",
+    "Goals"
+           )
 
-    with open(file_name, "r") as file:
+   #with open(file_name, "r") as file:
 
-        reader = csv.reader(file)
+       #reader = csv.reader(file)
 
-        next(reader)
+        #next(reader)
 
-        highest_goals = -1 #This keeps track of the highest number of goals found so far.
-        best_player = ""
+        #highest_goals = -1 #This keeps track of the highest number of goals found so far.
+        #best_player = ""
 
-        for row in reader:
+       # for row in reader:
 
-            goals = int(row[22]) # for every goal read this 
+            #goals = int(row[22]) # for every goal read this 
 
-            if goals > highest_goals: #If the player has scored more goals than the current highest
+            #if goals > highest_goals: #If the player has scored more goals than the current highest
 
-                highest_goals = goals
-                best_player = row[1]
+                #highest_goals = goals#best_player = row[1]
 
-        print("\nTOP GOAL SCORER")
-        print("-" * 25)
-        print("Player:", best_player)
-        print("Goals:", highest_goals)
+        #print("\nTOP GOAL SCORER")
+        #print("-" * 25)
+        #print("Player:", best_player)
+        #print("Goals:", highest_goals)
 
 def top_10_goal_scorers():
 
@@ -240,29 +272,34 @@ def average_goals_by_position():
             print(f"{position}: {average:.2f} goals")
 
 def top_assist_provider():
+    find_highest_value(
+    23,
+    "TOP ASSIST PROVIDER",
+    "Assists"
+               )
 
-    with open(file_name, "r") as file:
+    #with open(file_name, "r") as file:
 
-        reader = csv.reader(file)
+       # reader = csv.reader(file)
 
-        next(reader)
+        #next(reader)
 
-        highest_assists = -1
-        best_player = ""
+        #highest_assists = -1
+        #best_player = ""
 
-        for row in reader:
+       # for row in reader:
 
-            assists = int(row[23])
+            #assists = int(row[23])
 
-            if assists > highest_assists:
+            #if assists > highest_assists:
 
-                highest_assists = assists
-                best_player = row[1]
+                #highest_assists = assists
+                #best_player = row[1]
 
-        print("\nTOP ASSIST PROVIDER")
-        print("-" * 30)
-        print("Player:", best_player)
-        print("Assists:", highest_assists)
+       # print("\nTOP ASSIST PROVIDER")
+        #print("-" * 30)
+        #print("Player:", best_player)
+        #print("Assists:", highest_assists)
 
 def best_shooting_accuracy():
 
@@ -295,54 +332,75 @@ def best_shooting_accuracy():
         print("Accuracy: {:.2f}%".format(highest_accuracy))
 
 def highest_xg_player():
+    find_highest_value(
+    26,
+    "PLAYER WITH HIGHEST EXPECTED GOALS (xG)",
+    "Expected Goals (xG)",
+    float
+            )
 
-    with open(file_name, "r") as file:
+    #with open(file_name, "r") as file:
 
-        reader = csv.reader(file)
+        #reader = csv.reader(file)
 
-        next(reader)
+        #next(reader)
 
-        highest_xg = -1
-        best_player = ""
+        #highest_xg = -1
+        #best_player = ""
 
-        for row in reader:
+        #for row in reader:
 
-            xg = float(row[26])
+            #xg = float(row[26])
 
-            if xg > highest_xg:
+            #if xg > highest_xg:
 
-                highest_xg = xg
-                best_player = row[1]
+                #highest_xg = xg
+                #best_player = row[1]
 
-        print("\nPLAYER WITH HIGHEST EXPECTED GOALS (xG)")
-        print("-" * 45)
-        print("Player:", best_player)
-        print("Expected Goals (xG):", round(highest_xg, 2))
-        
-running = True
+        #print("\nPLAYER WITH HIGHEST EXPECTED GOALS (xG)")
+        #print("-" * 45)
+        #print("Player:", best_player)
+        #print("Expected Goals (xG):", round(highest_xg, 2))
 
-while running:#"Keep repeating this code while running is True."
-    print("=" * 40)#instead of typing lots of = signs, Python repeats "=" 40 times.
-    print(" FIFA PLAYER ANALYSIS SYSTEM")
+def display_menu():
+
+    print("=" * 40)
+    print("FIFA PLAYER ANALYSIS SYSTEM")
     print("=" * 40)
 
     print("1. View Dataset Information")
-    print("2. Display Column Names") #combined total rows and columns here
+    print("2. Display Column Names")
     print("3. Total players")
     print("4. Average Age")
     print("5. Top Goal Scorer")
-    print("6. Top 10 goal scorers!")
+    print("6. Top 10 Goal Scorers")
     print("7. Search for a Player")
     print("8. Team Goal Total")
     print("9. Most Valuable Player")
-    print("10. AVERAGE GOALS BY POSITION")
+    print("10. Average Goals by Position")
     print("11. Top Assist Provider")
-    print("12. Best shooting accuracy")
-    print("13. PLAYER WITH HIGHEST EXPECTED GOALS ")
+    print("12. Best Shooting Accuracy")
+    print("13. Player with Highest Expected Goals")
     print("14. Exit")
+        
+running = True
 
-    choice = input("\nChoose an option: ") # what the user type what they chooose 
+while running:
+    display_menu()
+    #"Keep repeating this code while running is True."
 
+    choice = input("\nChoose an option: ") # what the user type what they chooose
+    
+    valid_choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"]
+
+    if choice not in valid_choices:
+        
+
+        print("\nInvalid option!")
+        print("Please choose a number from the menu.")
+
+        input("\nPress Enter to continue...")
+        continue
     print("\nYou selected option:", choice)
 
     if choice == "1":
@@ -422,5 +480,4 @@ while running:#"Keep repeating this code while running is True."
         running = False #Now the condition is no longer true, so the loop stops and the program ends.
 
     else:
-       print("\nInvalid option. Please choose a number from the menu.")
-       
+       print("\nInvalid option. Please choose a number from the menu.") 
