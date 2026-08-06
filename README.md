@@ -1,4 +1,4 @@
- # Python Data Analysis Project
+ # Python Data Analysis Project-FIFA World Cup 2026 Player Analysis System
 
 ## Project Overview
 
@@ -8,36 +8,34 @@ This project will analyse a new dataset using Python, Pandas, SQL, and data visu
 
 The objective of this project is to develop practical Python data analysis skills by cleaning, exploring, analysing, and visualising a real-world dataset.
 
-## Tools & Technologies
+ ##Features
+-View dataset information
+-Display column names
+-Search player
+-Total players
+-Average age
+-Top goal scorer
+-Top 10 goal scorers
+-Team goal totals
+-Most valuable player
+-Average goals by position
+-Top assist provider
+-Best shooting accuracy
+-Highest xG
 
-- Python
-- Pandas
-- NumPy
-- SQL
-- Matplotlib
-- Data Visualisation
+## Technologies
+-Python
+-CSV
+-IDLE
+-Git
+-GitHub
 
-## Project Status
-
-🚧 In Progress
-
-Currently developing Python skills before beginning the data analysis phase.
-
-## Planned Analysis
-
-- Data Cleaning
-- Exploratory Data Analysis (EDA)
-- Statistical Analysis
-- SQL Analysis
-- Data Visualisation
-- Business Insights
-
-## Skills Demonstrated
-
-- Python Programming
-- Data Manipulation
-- Data Cleaning
-- Exploratory Data Analysis
-- SQL
-- Data Visualisation
-- Business Analysis
+##Skills Demonstrated
+-Functions
+-Loops
+-Dictionaries
+-File handling
+-Sorting
+-Data analysis
+-Data cleaning
+-Input validation
